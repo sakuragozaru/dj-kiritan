@@ -22,7 +22,8 @@
 
 # その他
 - 棒読みちゃんとWebsocketプラグインを使っています
-  Websocketプラグインはこちらを導入してください
-  https://github.com/chocoa/BouyomiChan-WebSocket-Plugin
+Websocketプラグインはこちらを導入してください
+https://github.com/chocoa/BouyomiChan-WebSocket-Plugin
+
 - httpsアクセスを許可したいアドレスを増やす場合はcertの再発行をしてください
-  https://qiita.com/hbjpn/items/925c8012cd93d9165be6
+https://qiita.com/hbjpn/items/925c8012cd93d9165be6
