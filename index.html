@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/zzm_kiritan_nabe.png">
+    <title>DJきりたん</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="./js/filenames.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/bouyomichan_client.js"></script>
+    <script>
+        function onSubmit(e) {
+            let comment = document.querySelector("#comment").value;
+            // let speed = document.querySelector("#speed").value;
+            // let pitch = document.querySelector("#pitch").value;
+            // let volume = document.querySelector("#volume").value;
+            // bouyomi(comment, speed, pitch, volume);
+            bouyomi(comment);
+            return false;
+        }
+    </script>
+    <style>
+        body{
+            background-color: rgba(242,152,3,0.05);
+            font-family: Roboto, Meiryo, Garamond, serif;
+            margin: 0;
+            padding: 20px 20px 200px;    
+        }
+        #voiceroid_form{
+            position: fixed;
+            border-radius: 50px 50px 0 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: rgba(242,152,3,0.3);
+            background-image: url("./image/zzm_a1zunko54.png");
+            background-size: auto 500%;
+            background-position: -60px 20%;
+            background-repeat: no-repeat;
+            text-align: right;
+            box-sizing: border-box;
+            padding: 50px;
+            box-shadow: 0px 0px 30px rgba(10, 10, 10, 0.2);
+        }
+       #voiceroid_form > input[type=text]{
+            display: inline-block;
+            width: 60%;
+            height: 30px;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            background-color: #fafafa;
+            color: #111;
+            font-weight: bold;
+            appearance: none;
+            font-size: 16px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        #voiceroid_form > input[type=submit]{
+            display: inline-block;
+            margin-left: 5px;
+            width: 10%;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition:0.1s all;
+        }
+        #voiceroid_form > input[type=submit]:hover{
+            transform:scale(1.05);
+        }
+        #voiceroid_form > input[type=submit]:active{
+            transform:scale(1.00);
+            box-shadow: 0px 0px 10px rgba(10, 10, 10, 0.2);
+        }
+        div{
+            display: inline-block;
+            /* border: solid 1px; */
+            color: #111;
+            background-color:whitesmoke;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 4px 8px;
+            box-shadow: 0px 0px 2px rgba(10, 10, 10, 0.2);
+            transition:0.1s all;
+        }
+        div:hover{
+            font-weight: bold;
+            transform:scale(1.05);
+            box-shadow: 0px 0px 30px rgba(10, 10, 10, 0.2);
+        }
+        div:active{
+            transform:scale(1.00);
+            box-shadow: 0px 0px 10px rgba(10, 10, 10, 0.2);
+        }
+        div.あいさつ_基本語{
+            background-color:rgba(255,250,220,1);
+        }
+        div.オノマトペ{
+            background-color:rgba(245,255,220,1);
+        }
+        div.カーナビ用{
+            background-color:rgba(245,245,220,1);
+        }
+        div.きりたんらしいセリフ{
+            background-color:rgba(235,245,220,1);
+        }
+        div.ゲームとかで勝ったり負けたり出撃したりするときのシステムボイス{
+            background-color:rgba(225,245,220,1);
+        }
+        div.ゲーム用{
+            background-color:rgba(215,245,220,1);
+        }
+        div.スマホゲームとかでタッチされたときに喋る感じのセリフ{
+            background-color:rgba(205,245,220,1);
+        }
+        div.ずん子、他のキャラへのセリフ{
+            background-color:rgba(205,255,205,1);
+        }
+        div.デート{
+            background-color:rgba(255,225,250,1);
+        }
+        div.ネガティブ{
+            background-color:rgba(225,225,255,1);
+        }
+        div.ネットスラング{
+            background-color:rgba(245,245,245,1);
+        }
+        div.ポジティブ{
+            background-color:rgba(245,245,220,1);
+        }
+        div.挨拶・相槌{
+            background-color:rgb(241, 220, 245);
+        }
+        div.一人称・呼びかけ{
+            background-color:rgb(220, 243, 245);
+        }
+        div.歌関連{
+            background-color:rgb(231, 220, 245);
+        }
+        div.季節イベント{
+            background-color:rgb(220, 245, 220);
+        }
+        div.購入者へのセリフ{
+            background-color:rgba(245,245,220,1);
+        }
+        div.死亡フラグ{
+            background-color:rgba(233, 220, 245, 0.932);
+        }
+        div.自己紹介{
+            background-color:rgba(245,245,220,1);
+        }
+        div.秋田系{
+            background-color:rgb(245, 234, 220);
+        }
+        div.台詞{
+            background-color:rgb(245, 224, 220);
+        }
+        div.中立{
+            background-color:rgba(245,245,220,1);
+        }
+        div.投稿動画用{
+            background-color:rgb(220, 245, 243);
+        }
+        div.動揺・呻き{
+            background-color:rgb(220, 220, 245);
+        }
+        div.鼻歌{
+            background-color:rgba(245,245,220,1);
+        }
+        div.文頭文尾{
+            background-color:rgb(220, 245, 221);
+        }
+        div.方言・特殊台詞{
+            background-color:rgb(245, 235, 220);
+        }
+        datalist{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <form method="get" id="voiceroid_form" action="javascript:void(0)">
+        <!--
+        speed: <input type="range" name="speed" id="speed" min="50" max="200" value="100">
+        pitch: <input type="range" name="pitch" id="pitch" min="50" max="200" value="100">
+        volume: <input type="range" name="volume" id="volume" min="0" max="100" value="100">
+        -->
+        <input type="text" name="comment" id="comment" value="">
+        <input type="submit" value="送信" onclick="onSubmit()">
+        <br/>
+        <div>
+            <input type="checkbox" name="is_recognition" id="is_recognition" checked>
+            <label for="is_recognition" class="label">音声での途中入力</label>
+        </div>
+        <div>
+            <input type="checkbox" name="is_auto_post" id="is_auto_post" checked>
+            <label for="is_auto_post" class="label">音声での自動送信</label>
+        </div>
+</form>
+</body>
+</html>
