@@ -27,3 +27,9 @@ https://github.com/chocoa/BouyomiChan-WebSocket-Plugin
 
 - httpsアクセスを許可したいアドレスを増やす場合はcertの再発行をしてください
 https://qiita.com/hbjpn/items/925c8012cd93d9165be6
+
+# 制作ログ
+- 2021/07/17 21:55 制作開始
+- 2021/07/18 01:18 ExVoiceボタンとVoiceroid読み上げテキスト欄実装完了 & 仮CSS付与完了
+- 2021/07/18 02:24 音声認識機能追加完了
+- 2021/07/18 03:06 Readmeの整備完了
